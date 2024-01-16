@@ -8,4 +8,3 @@ for i in range(10):
         else:
             combination += "\n"
         print(combination, end="")
-
