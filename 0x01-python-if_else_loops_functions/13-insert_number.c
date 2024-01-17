@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <stddef.h>
 
-
 /**
  * insert_node - Inserts a node into a sorted linked list
  * @head: A pointer to the head of the linked list
@@ -28,25 +27,21 @@ listint_t *insert_node(listint_t **head, int number)
 	n_node->next = NULL;
 
 	tmp = *head;
-	for (; tmp && n_node->n > tmp->n; old = tmp, tmp = tmp->next)
+	while (tmp && n_node->n > tmp->n)
 	{
 		old = tmp;
 		tmp = tmp->next;
 	}
-	while (tmp && n_node->n == tmp->n)
+
+	if (!old)
 	{
-		n_node->next = tmp;
+		n_node->next = *head;
+		*head = n_node;
+	}
+	else
+	{
 		old->next = n_node;
-		if (!old)
-		{
-			n_node->next = *head;
-			*head = n_node;
-		}
-		else
-		{
-			n_node->next = old->next;
-			old->next = n_node;
-		}
+		n_node->next = tmp;
 	}
 
 	return (n_node);
