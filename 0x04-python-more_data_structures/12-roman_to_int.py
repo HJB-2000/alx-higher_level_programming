@@ -6,7 +6,7 @@ def roman_to_int(roman_string):
 
     if type(roman_string) is str and roman_string:
         for i in range(len(roman_string) - 1, -1, -1):
-            if value[roman_string[c]] >= point:
+            if value[roman_string[i]] >= point:
                 reset += value[roman_string[i]]
             else:
                 reset -= value[roman_string[i]]
