@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Square module"""
 
+
 class Square:
     """Square class"""
     def __init__(self, size=0):
@@ -11,4 +12,3 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self.__size = size
-
