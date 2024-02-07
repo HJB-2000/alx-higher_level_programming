@@ -104,8 +104,7 @@ class SinglyLinkedList:
             self.head = new_node
         else:
             current = self.head
-            while current.next_node is not None
-            and current.next_node.data < value:
+            while current.next_node is not None and current.next_node.data < value:
                 current = current.next_node
             new_node.next_node = current.next_node
             current.next_node = new_node
@@ -123,12 +122,3 @@ class SinglyLinkedList:
             result += str(current.data) + "\n"
             current = current.next_node
         return result
-
-
-# Test the implementation
-if __name__ == "__main__":
-    singly_linked_list = SinglyLinkedList()
-    values = [2, 5, 3, 10, 1, -4, -3, 4, 5, 12, 3]
-    for value in values:
-        singly_linked_list.sorted_insert(value)
-    print(singly_linked_list)
