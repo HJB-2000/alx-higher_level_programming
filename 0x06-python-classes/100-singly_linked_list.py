@@ -79,14 +79,14 @@ class SinglyLinkedList:
     This class represents a singly linked list.
 
     Attributes:
-        head (Node): The head node of the linked list.
+        __head (Node): The head node of the linked list.
     """
 
     def __init__(self):
         """
         Initializes an empty singly linked list.
         """
-        self.head = None
+        self.__head = None
 
     def sorted_insert(self, value):
         """
@@ -97,17 +97,18 @@ class SinglyLinkedList:
             value (int): The value to be inserted into the linked list.
         """
         new_node = Node(value)
-        if self.head is None:
-            self.head = new_node
-        elif self.head.data > value:
-            new_node.next_node = self.head
-            self.head = new_node
-        else:
-            current = self.head
-            while current.next_node is not None and current.next_node.data < value:
-                current = current.next_node
-            new_node.next_node = current.next_node
-            current.next_node = new_node
+        if self.__head is None:
+            self.__head = new_node
+            return
+        if self.__head.data > value:
+            new_node.next_node = self.__head
+            self.__head = new_node
+            return
+        curr = self.__head
+        while curr.next_node is not None and curr.next_node.data < value:
+            curr = curr.next_node
+        new_node.next_node = curr.next_node
+        curr.next_node = new_node
 
     def __str__(self):
         """
@@ -116,9 +117,9 @@ class SinglyLinkedList:
         Returns:
             str: The string representation of the linked list.
         """
-        result = ""
-        current = self.head
-        while current:
-            result += str(current.data) + "\n"
-            current = current.next_node
-        return result
+        values = []
+        curr = self.__head
+        while curr is not None:
+            values.append(str(curr.data))
+            curr = curr.next_node
+        return "\n".join(values)
