@@ -13,7 +13,7 @@ class Student:
         """
         Initializes a new Student.
 
-        Parameters:
+         Args:
             first_name (str): The first name of the student.
             last_name (str): The last name of the student.
             age (int): The age of the student.
@@ -23,19 +23,13 @@ class Student:
         self.age = age
 
     def to_json(self, attrs=None):
-        """
-        Returns a dictionary representation of the Student object.
+        """Get a dictionary representation of the Student.
 
-        If attrs is provided as a list of strings, includes only
-        those attributes in the dictionary.
+        If attrs is a list of strings, represents only those attributes
+        included in the list.
 
-        Parameters:
-            attrs (list): (Optional) List of attribute names to
-                include in the dictionary.
-
-        Returns:
-            dict: A dictionary containing the specified attributes
-                of the Student.
+        Args:
+            attrs (list): (Optional) The attributes to represent.
         """
         if (type(attrs) == list and
                 all(type(ele) == str for ele in attrs)):
